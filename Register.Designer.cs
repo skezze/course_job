@@ -84,6 +84,7 @@
             this.loginButton.TabIndex = 12;
             this.loginButton.Text = "Зарегистрироваться";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // label3
             // 
@@ -128,7 +129,7 @@
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(202, 368);
+            this.label5.Location = new System.Drawing.Point(194, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 15;

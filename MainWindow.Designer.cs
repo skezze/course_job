@@ -35,6 +35,7 @@
             // 
             // buttonToLoginForm
             // 
+            this.buttonToLoginForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonToLoginForm.Location = new System.Drawing.Point(158, 166);
             this.buttonToLoginForm.Name = "buttonToLoginForm";
             this.buttonToLoginForm.Size = new System.Drawing.Size(172, 45);
@@ -45,6 +46,7 @@
             // 
             // buttonToRegForm
             // 
+            this.buttonToRegForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonToRegForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonToRegForm.Location = new System.Drawing.Point(158, 278);
             this.buttonToRegForm.Name = "buttonToRegForm";

@@ -110,7 +110,7 @@
             // passwordFill
             // 
             this.passwordFill.Location = new System.Drawing.Point(151, 217);
-            this.passwordFill.MaxLength = 50;
+            this.passwordFill.MaxLength = 20;
             this.passwordFill.Name = "passwordFill";
             this.passwordFill.Size = new System.Drawing.Size(177, 22);
             this.passwordFill.TabIndex = 9;
@@ -119,6 +119,7 @@
             // loginFill
             // 
             this.loginFill.Location = new System.Drawing.Point(151, 127);
+            this.loginFill.MaxLength = 10;
             this.loginFill.Name = "loginFill";
             this.loginFill.Size = new System.Drawing.Size(177, 22);
             this.loginFill.TabIndex = 8;

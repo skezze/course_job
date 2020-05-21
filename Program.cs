@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace course_job
@@ -16,7 +13,7 @@ namespace course_job
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(/*new ForkForm());*/new MainWindow());
+            Application.Run(/*new MainWindow()*/new ForkForm());
         }
     }
 }

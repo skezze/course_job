@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabpage5 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.clear_but = new System.Windows.Forms.Button();
             this.add_to_base = new System.Windows.Forms.Button();
             this.NOCField = new System.Windows.Forms.TextBox();
-            this.TOWField = new System.Windows.Forms.TextBox();
             this.CostField = new System.Windows.Forms.TextBox();
             this.Debt = new System.Windows.Forms.TextBox();
-            this.PayCheck = new System.Windows.Forms.TextBox();
             this.FIOField = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,38 +46,50 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tabControl1.SuspendLayout();
+            this.tabpage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabpage5
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(0, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(783, 553);
-            this.tabControl1.TabIndex = 0;
+            this.tabpage5.Controls.Add(this.tabPage1);
+            this.tabpage5.Controls.Add(this.tabPage2);
+            this.tabpage5.Controls.Add(this.tabPage3);
+            this.tabpage5.Location = new System.Drawing.Point(0, 1);
+            this.tabpage5.Name = "tabpage5";
+            this.tabpage5.SelectedIndex = 0;
+            this.tabpage5.Size = new System.Drawing.Size(783, 553);
+            this.tabpage5.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.clear_but);
             this.tabPage1.Controls.Add(this.add_to_base);
             this.tabPage1.Controls.Add(this.NOCField);
-            this.tabPage1.Controls.Add(this.TOWField);
             this.tabPage1.Controls.Add(this.CostField);
             this.tabPage1.Controls.Add(this.Debt);
-            this.tabPage1.Controls.Add(this.PayCheck);
             this.tabPage1.Controls.Add(this.FIOField);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -92,6 +105,40 @@
             this.tabPage1.Text = "Новая анкета";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(466, 266);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(55, 21);
+            this.checkBox2.TabIndex = 20;
+            this.checkBox2.Text = "Нет";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(356, 266);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(49, 21);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "Да";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Протезирование",
+            "Пломбирование",
+            "Имплантация"});
+            this.comboBox1.Location = new System.Drawing.Point(356, 143);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 24);
+            this.comboBox1.TabIndex = 18;
+            // 
             // clear_but
             // 
             this.clear_but.Location = new System.Drawing.Point(538, 482);
@@ -100,6 +147,7 @@
             this.clear_but.TabIndex = 13;
             this.clear_but.Text = "Очистить";
             this.clear_but.UseVisualStyleBackColor = true;
+            this.clear_but.Click += new System.EventHandler(this.clear_but_Click);
             // 
             // add_to_base
             // 
@@ -115,42 +163,28 @@
             // 
             this.NOCField.Location = new System.Drawing.Point(356, 87);
             this.NOCField.Name = "NOCField";
-            this.NOCField.Size = new System.Drawing.Size(100, 22);
+            this.NOCField.Size = new System.Drawing.Size(208, 22);
             this.NOCField.TabIndex = 11;
-            // 
-            // TOWField
-            // 
-            this.TOWField.Location = new System.Drawing.Point(356, 143);
-            this.TOWField.Name = "TOWField";
-            this.TOWField.Size = new System.Drawing.Size(100, 22);
-            this.TOWField.TabIndex = 10;
             // 
             // CostField
             // 
             this.CostField.Location = new System.Drawing.Point(356, 203);
             this.CostField.Name = "CostField";
-            this.CostField.Size = new System.Drawing.Size(100, 22);
+            this.CostField.Size = new System.Drawing.Size(208, 22);
             this.CostField.TabIndex = 9;
             // 
             // Debt
             // 
             this.Debt.Location = new System.Drawing.Point(356, 328);
             this.Debt.Name = "Debt";
-            this.Debt.Size = new System.Drawing.Size(100, 22);
+            this.Debt.Size = new System.Drawing.Size(208, 22);
             this.Debt.TabIndex = 8;
-            // 
-            // PayCheck
-            // 
-            this.PayCheck.Location = new System.Drawing.Point(356, 266);
-            this.PayCheck.Name = "PayCheck";
-            this.PayCheck.Size = new System.Drawing.Size(100, 22);
-            this.PayCheck.TabIndex = 7;
             // 
             // FIOField
             // 
             this.FIOField.Location = new System.Drawing.Point(356, 35);
             this.FIOField.Name = "FIOField";
-            this.FIOField.Size = new System.Drawing.Size(100, 22);
+            this.FIOField.Size = new System.Drawing.Size(208, 22);
             this.FIOField.TabIndex = 6;
             // 
             // label6
@@ -215,6 +249,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -223,8 +262,63 @@
             this.tabPage2.Text = "Просмотр базы";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(656, 489);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(110, 29);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Подробнее";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 22;
+            this.listBox1.Location = new System.Drawing.Point(8, 47);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(758, 422);
+            this.listBox1.TabIndex = 4;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(694, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 38);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Найти";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(559, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(129, 22);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("ScriptC", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(289, 212);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(214, 49);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Сдэс Пуста";
+            this.label9.Visible = false;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.label8);
@@ -236,6 +330,51 @@
             this.tabPage3.Text = "Дополнительно";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(282, 185);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(98, 22);
+            this.textBox2.TabIndex = 11;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(282, 271);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(98, 30);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Удалить";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 278);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(269, 17);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Удалить клиентов без задолженностей";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(411, 181);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(98, 30);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Вывести";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 188);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(244, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Вывести справку о задолженностях";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(282, 108);
@@ -244,6 +383,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Загрузить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -282,15 +422,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabpage5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ForkForm";
             this.Text = "Приложение";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ForkForm_FormClosing);
-            this.tabControl1.ResumeLayout(false);
+            this.tabpage5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -299,14 +441,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabpage5;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox NOCField;
-        private System.Windows.Forms.TextBox TOWField;
         private System.Windows.Forms.TextBox CostField;
         private System.Windows.Forms.TextBox Debt;
-        private System.Windows.Forms.TextBox PayCheck;
         private System.Windows.Forms.TextBox FIOField;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -323,5 +463,18 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button7;
     }
 }

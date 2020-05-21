@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -43,42 +37,56 @@ namespace course_job
             {
                 dirInfo.Create();
             }
+            bool checkClear;
             using (FileStream fs1 = new FileStream(pathlogdb, FileMode.OpenOrCreate))
             {
-                try
-                {
-                    if (fs1.Length != 0)
-                    {
-                        Users[] users = (Users[])formatter.Deserialize(fs1);
-                        for (int i = 0; i < users.Length; i++)
-                        {
-                            if ((loginFill.Text == users[i].Login) && (passwordFill.Text == users[i].Password) && (Convert.ToInt32(secretCode.Text) == users[i].SecretCode))
-                            {
-                                Password_check.password = users[i].Password;
-                                this.Hide();
-                                ForkForm fork = new ForkForm();
-                                fork.Show();
-                            }
-                            else
-                            {
-                                label4.Visible = true;
-                            }
-                        }
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Пользователей в базе данных не найдено");
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("неизвестная ошибка");
-                }
-
-
-
+                if (fs1.Length == 0)
+                    checkClear = true;
+                else
+                    checkClear = false;
+            
             }
+            if (checkClear == true)
+            {
+                MessageBox.Show("Пользователей в базе данных не найдено");
+            }
+            else
+            {
+                List<Users> users = new List<Users>();
+                int secret;
+                Int32.TryParse(secretCode.Text,out secret);
+                if (secret == 946732)
+                    using (BinaryReader reader = new BinaryReader(File.Open(pathlogdb, FileMode.Open)))
+                    {
+
+                        while (reader.PeekChar() > -1)
+                        {
+
+                            Users users1 = new Users();
+                            users1.Login = reader.ReadString();
+                            users1.Password = reader.ReadString();
+                            users.Add(users1);
+                            
+                        }
+                        for (int i = 0; i < users.Count; i++)
+                        {
+                            if (loginFill.Text == users[i].Login && passwordFill.Text == users[i].Password)
+                            {
+                                tempPassword.Password = passwordFill.Text;
+                                this.Hide();
+
+                                ForkForm forkForm = new ForkForm();
+                                
+                                forkForm.Show();
+                            }
+
+                        }
+                        label4.Visible = true;
+                    }
+                else
+                    label4.Visible = true;
+            }
+
         }
 
         private void secretCode_TextChanged(object sender, EventArgs e)

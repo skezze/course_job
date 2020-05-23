@@ -12,7 +12,7 @@ namespace course_job
        string pathclientDB = @"C:\coursejobDB\clients.mdb";
         List<Clients> clients = new List<Clients>();
         bool checkClear;
-
+        List<int> numberSave = new List<int>();
         
 
         public ForkForm()
@@ -50,17 +50,7 @@ namespace course_job
             }
             for (int i = 0; i < clients.Count; i++)
             {
-                
-                string temp = "";
-                temp = clients[i].FIO1.Substring(0, (clients[i].FIO1.Length<60)?(clients[i].FIO1.Length - 1):
-                    59);
-              
-                for (int k = temp.Length-1; k < 60; k++)
-                {
-                    temp += "/";
-                }
-               // listBox1
-                listBox1.Items.Add($"{temp}gdsh ");
+                listBox1.Items.Add($"{clients[i].FIO1.PadRight(50) + clients[i].Cost.ToString().PadRight(10) + clients[i].Dolg.ToString().PadRight(10)}");
             }
             
         }
@@ -210,11 +200,11 @@ namespace course_job
                 listBox1.Items.Clear();
                 for (int i = 0; i < clients.Count; i++)
                 {
-                    listBox1.Items.Add(clients[i].FIO1);
+                    listBox1.Items.Add(clients[i].FIO1.PadRight(50) + clients[i].Cost.ToString().PadRight(10) + clients[i].Dolg.ToString().PadRight(10));
                 }
             }
             else
-            {//fix find
+            {
                 listBox1.Items.Clear();
 
                 for (int i = 0; i < clients.Count; i++)
@@ -234,10 +224,11 @@ namespace course_job
                         clients[i].Cost==parsecost||
                         clients[i].Dolg ==parsedolg)
                     {
-                        listBox1.Items.Add($"{clients[i].FIO1,-30} {clients[i].Cost,-10} {clients[i].Dolg,-10} {clients[i].Job,-30}");
+                        listBox1.Items.Add($"{clients[i].FIO1.PadRight(50) + clients[i].Cost.ToString().PadRight(10) + clients[i].Dolg.ToString().PadRight(10)}");
+                        numberSave.Add(i);
                     }
-                   }
                 }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -279,7 +270,7 @@ namespace course_job
                     else
                     {
                         
-                        listBox1.Items.Add($"{clients[i].FIO1,-30} {clients[i].Cost,-10} {clients[i].Dolg,-10} {clients[i].Job,-30}");
+                        listBox1.Items.Add($"{clients[i].FIO1.PadRight(50) + clients[i].Cost.ToString().PadRight(10) + clients[i].Dolg.ToString().PadRight(10)}");
                         i++;
                     }
                 
@@ -307,17 +298,32 @@ namespace course_job
         {
             if (listBox1.SelectedIndex > -1)
             {
-              //  tempPassword.Clients = clients[listBox1.SelectedIndex];
-                Edit edit = new Edit(listBox1.SelectedIndex);
-               // edit.index = ;
-                edit.ShowDialog();
-                this.Hide();
-                ForkForm fork = new ForkForm();
-                fork.Show();
+                if (numberSave.Count == 0)
+                {
+                    Edit edit = new Edit(listBox1.SelectedIndex);
+                    // edit.index = ;
+                    edit.ShowDialog();
+                    this.Hide();
+                    ForkForm fork = new ForkForm();
+                    fork.Show();
+                }
+                else 
+                {
+                            Edit edit = new Edit(numberSave[listBox1.SelectedIndex]);
+                            // edit.index = ;
+                            edit.ShowDialog();
+                            this.Hide();
+                            ForkForm fork = new ForkForm();
+                            fork.Show();
+                }
             }
         }
 
-      
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Help help = new Help();
+            help.Show();
+        }
     }
 }
 

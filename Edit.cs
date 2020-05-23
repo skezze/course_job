@@ -15,7 +15,7 @@ namespace course_job
     {
         public static bool returnAccesPassword = false;
 
-       public int index;
+        public int index;
         List<Clients> clients = new List<Clients>();
         string pathclientDB = @"C:\coursejobDB\clients.mdb";
         public Edit(int index)
@@ -23,7 +23,7 @@ namespace course_job
             InitializeComponent();
             using (BinaryReader reader = new BinaryReader(File.Open(pathclientDB, FileMode.Open)))
             {
-               // index = 0;
+                // index = 0;
                 while (reader.PeekChar() > -1)
                 {
                     Clients clients1 = new Clients();
@@ -36,7 +36,7 @@ namespace course_job
                     clients.Add(clients1);
                 }
             }
-            
+
             FIOField.Text = clients[index].FIO1;
             NOCField.Text = clients[index].CardNumber.ToString();
             comboBox1.Text = clients[index].Job;
@@ -46,7 +46,7 @@ namespace course_job
             else
                 checkBox2.Checked = true;
             Debt.Text = clients[index].Dolg.ToString();
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,16 +66,17 @@ namespace course_job
                 checkBox2.Enabled = true;
                 Debt.Enabled = true;
                 button2.Enabled = false;
+                button3.Enabled = true;
 
             }
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
                 checkBox2.Checked = false;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace course_job
                             else
                                 using (BinaryWriter bf = new BinaryWriter(File.Open(pathclientDB, FileMode.Open)))
                                 {
-                                    if (temp.Dolg <=  temp.Cost && temp.Dolg > -1)
+                                    if (temp.Dolg <= temp.Cost && temp.Dolg > -1)
                                     {
                                         temp.FIO1 = FIOField.Text;
                                         temp.Job = comboBox1.Text;
@@ -112,7 +113,7 @@ namespace course_job
                                             bf.Write(clients[i].CheckPayment);
                                             bf.Write(clients[i].Dolg);
                                         }
-                                        
+
 
                                         MessageBox.Show("данные отредактированы");
 
@@ -144,6 +145,27 @@ namespace course_job
         {
             if (checkBox2.Checked == true)
                 checkBox1.Checked = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            clients.RemoveAt(index);
+            File.Delete(pathclientDB);
+            using (BinaryWriter bf = new BinaryWriter(File.Open(pathclientDB, FileMode.Create)))
+            {
+                for (int i = 0; i < clients.Count; i++)
+                {
+                    bf.Write(clients[i].FIO1);
+                    bf.Write(clients[i].CardNumber);
+                    bf.Write(clients[i].Job);
+                    bf.Write(clients[i].Cost);
+                    bf.Write(clients[i].CheckPayment);
+                    bf.Write(clients[i].Dolg);
+                }
+            }
+            MessageBox.Show("Клиент удален");
+            this.Hide();
+           
         }
     }
 }

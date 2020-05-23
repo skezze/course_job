@@ -52,6 +52,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,6 +65,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.tabpage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -249,6 +254,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.listBox1);
             this.tabPage2.Controls.Add(this.button3);
@@ -275,12 +283,12 @@
             // 
             // listBox1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(8, 47);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(8, 87);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(758, 422);
+            this.listBox1.Size = new System.Drawing.Size(758, 384);
             this.listBox1.TabIndex = 4;
             // 
             // button3
@@ -314,6 +322,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.label11);
@@ -329,6 +339,25 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Дополнительно";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 365);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(187, 17);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Справка для пользователя";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(283, 358);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(98, 30);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Вывести";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox2
             // 
@@ -417,6 +446,33 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 57);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(35, 17);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Имя";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(556, 67);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(43, 17);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Цена";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(634, 67);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(111, 17);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Задолженность";
+            // 
             // ForkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -476,5 +532,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }

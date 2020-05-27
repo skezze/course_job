@@ -28,7 +28,7 @@ namespace course_job
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string pathlogdb = @"C:\coursejobDB\users.mdb";
+            string pathlogdb = @"C:\coursejobDB\users";
 
             string path = @"C:\coursejobDB";
             DirectoryInfo dirInfo = new DirectoryInfo(path);

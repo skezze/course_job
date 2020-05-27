@@ -37,7 +37,7 @@ namespace course_job
         private void loginButton_Click(object sender, EventArgs e)
         {
             
-            string pathlogdb = @"C:\coursejobDB\users.mdb";
+            string pathlogdb = @"C:\coursejobDB\users";
             string path = @"C:\coursejobDB";
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             
@@ -126,107 +126,7 @@ namespace course_job
                 }
             }
                 
-                //using (FileStream fs1 = new FileStream(pathlogdb, FileMode.OpenOrCreate))
-            //{
-            //    if (fs1.Length != 0)
-            //    {
-            //        //try
-            //        //{
-            //        //    BinaryFormatter formatter = new BinaryFormatter();
-            //        //    users1 = (Users[])formatter.Deserialize(fs1);
-            //        //    users = new Users[users1.Length + 1];
-            //        //    for (int i = 0; i < users1.Length+1; i++)
-            //        //    {
-            //        //        users[i] = new Users();
-            //        //    }
-
-
-            //        //    for (int o=0; o < users1.Length;o++)
-            //        //    {
-            //        //        users[o] = users1[o];
-            //        //    }
-
-            //        //    int secret = 0;
-            //        //    if (Int32.TryParse(secretCode.Text, out secret))
-            //        //    {
-            //        //        if (secret == 946732)
-            //        //        {
-            //        //            int j = 0;
-            //        //            for (int i = 0; i < users1.Length; i++)
-            //        //            {
-            //        //                if (users1[i].Login == loginFill.Text)
-            //        //                    j++;
-            //        //            }
-            //        //            if (j == 0)
-            //        //            {
-            //        //                users[users.Length-1].Login = loginFill.Text;
-            //        //                users[users.Length-1].Password = passwordFill.Text;
-            //        //                BinaryFormatter binary = new BinaryFormatter();
-            //        //                //File.Delete(pathlogdb);
-            //        //                binary.Serialize(fs1, users);
-            //        //                MessageBox.Show("Пользователь зарегистрирован");
-            //        //            }
-            //        //            else
-            //        //            {
-            //        //                label4.Visible = true;
-            //        //            }
-            //        //        }
-            //        //    }
-            //        //    else
-            //        //    {
-            //        //        MessageBox.Show("Неверный секретный код");
-            //        //    }
-            //        //}
-
-
-
-
-            //        //catch (System.Runtime.Serialization.SerializationException)
-            //        //{
-            //        //    MessageBox.Show("Ошибочка распаковки существующих аккаунтов");
-            //        //}
-            //        //catch (Exception)
-            //        //{
-            //        //    MessageBox.Show("Ошибочка вышла");
-            //        //}
-
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Файл пуст"); 
-                
-            //    }
-            //        //try
-            //        //{
-            //        //    Users[] users2 = new Users[1];
-            //        //    users2[0] = new Users();
-            //        //    int secret = 0;
-            //        //    if (Int32.TryParse(secretCode.Text, out secret))
-            //        //    {
-            //        //        if (secret == 946732)
-            //        //        {
-            //        //                users2[0].Login = loginFill.Text;
-            //        //                users2[0].Password = passwordFill.Text;
-            //        //            //File.Delete(pathlogdb);
-            //        //            BinaryFormatter formatter = new BinaryFormatter();
-            //        //            formatter.Serialize(fs1, users2);
-            //        //    MessageBox.Show("Пользователь зарегистрирован");
-
-            //        //}
-            //        //        }
-            //        //        else
-            //        //        {
-            //        //            MessageBox.Show("Неверный секретный код");
-            //        //        }
-
-                
-            //        catch (Exception)
-            //        {
-            //            MessageBox.Show("Мда...");
-
-            //        }
-                
-            //}
+               
         }
     }
 }

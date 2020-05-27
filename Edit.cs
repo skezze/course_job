@@ -15,11 +15,12 @@ namespace course_job
     {
         public static bool returnAccesPassword = false;
 
-        public int index;
+        public int index1;
         List<Clients> clients = new List<Clients>();
-        string pathclientDB = @"C:\coursejobDB\clients.mdb";
+       public static string pathclientDB = @"C:\coursejobDB\clients";
         public Edit(int index)
         {
+            index1 = index;
             InitializeComponent();
             using (BinaryReader reader = new BinaryReader(File.Open(pathclientDB, FileMode.Open)))
             {
@@ -88,10 +89,11 @@ namespace course_job
                 {
                     if (Double.TryParse(NOCField.Text, out temp.cardNumber) &&
                         Double.TryParse(CostField.Text, out temp.cost) &&
-                        Double.TryParse(Debt.Text, out temp.dolg))
+                        Double.TryParse(Debt.Text, out temp.dolg) &&
+                        FIOField.Text.Length > 0 && comboBox1.Text.Length > 0)
                         if (temp.Cost > 0)
                             if (checkBox2.Checked == true && temp.Dolg != temp.Cost)
-                                MessageBox.Show("Что-то не так");
+                                MessageBox.Show("Что-то не так с задолженностью, отметкой об оплате или долгом");
                             else
                                 using (BinaryWriter bf = new BinaryWriter(File.Open(pathclientDB, FileMode.Open)))
                                 {
@@ -103,7 +105,7 @@ namespace course_job
                                             temp.CheckPayment = true;
                                         if (checkBox2.Checked == true)
                                             temp.CheckPayment = false;
-                                        clients[index] = temp;
+                                        clients[index1] = temp;
                                         for (int i = 0; i < clients.Count; i++)
                                         {
                                             bf.Write(clients[i].FIO1);
@@ -115,7 +117,7 @@ namespace course_job
                                         }
 
 
-                                        MessageBox.Show("данные отредактированы");
+                                        MessageBox.Show("Данные отредактированы");
 
 
                                     }
@@ -127,8 +129,12 @@ namespace course_job
                                 }
                         else
                         {
-                            MessageBox.Show("Неправильный ввод в некоторые поля");
+                            MessageBox.Show("Стоимость услуг должна быть больше 0");
                         }
+                    else
+                    {
+                        MessageBox.Show("Неправильный ввод в поля с численным вводом");
+                    }
                 }
                 else
                 {
@@ -149,7 +155,7 @@ namespace course_job
 
         private void button3_Click(object sender, EventArgs e)
         {
-            clients.RemoveAt(index);
+            clients.RemoveAt(index1);
             File.Delete(pathclientDB);
             using (BinaryWriter bf = new BinaryWriter(File.Open(pathclientDB, FileMode.Create)))
             {

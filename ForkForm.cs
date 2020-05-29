@@ -65,6 +65,15 @@ namespace course_job
                     {
                         listBox1.Items.Add($"{clients[i].FIO1.PadRight(50) + clients[i].Cost.ToString().PadRight(10) + clients[i].Dolg.ToString().PadRight(10)}");
                     }
+                    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\coursejobDB\backup");
+
+
+                    if (!dirInfo.Exists)
+                    {
+                        dirInfo.Create();
+                    }
+                    string path1 = @"C:\coursejobDB\clients";
+                    File.Copy(path1, @"C:\coursejobDB\backup\clientsbackup",true);
                 }
                 catch
                 {
@@ -79,6 +88,7 @@ namespace course_job
 
         private void ForkForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             Application.Exit();
         }
 
@@ -89,8 +99,19 @@ namespace course_job
             {
                 try
                 {
-                    string path1 = @"C:\coursejobDB\clients.mdb";
-                    File.Copy(path1, saveFile.FileName);
+                    using (BinaryWriter bf = new BinaryWriter(File.Open(saveFile.FileName, FileMode.CreateNew)))
+                    {
+                        for (int i = 0; i < clients.Count; i++)
+                        {
+
+                            bf.Write(clients[i].FIO1);
+                            bf.Write(clients[i].CardNumber);
+                            bf.Write(clients[i].Job);
+                            bf.Write(clients[i].Cost);
+                            bf.Write(clients[i].CheckPayment);
+                            bf.Write(clients[i].Dolg);
+                        }
+                    }
                     MessageBox.Show("Файл создан");
                 }
                 catch (Exception)
@@ -112,10 +133,12 @@ namespace course_job
                 {
                     if (Double.TryParse(NOCField.Text, out clients1[0].cardNumber) &&
                         Double.TryParse(CostField.Text, out clients1[0].cost) &&
-                        Double.TryParse(Debt.Text, out clients1[0].dolg)&&
-                        FIOField.Text.Length>0&&comboBox1.Text.Length>0)
+                        Double.TryParse(Debt.Text, out clients1[0].dolg) &&
+                        FIOField.Text.Length > 0 && comboBox1.Text.Length > 0)
                         if (clients1[0].Cost > 0)
                             if (checkBox2.Checked == true && clients1[0].Dolg != clients1[0].Cost)
+                                MessageBox.Show("Что-то не так с задолженностью, отметкой об оплате или долгом");
+                            else if (checkBox1.Checked == true && clients1[0].Dolg >= clients1[0].Cost)
                                 MessageBox.Show("Что-то не так с задолженностью, отметкой об оплате или долгом");
                             else
                                 using (BinaryWriter bf = new BinaryWriter(File.Open(pathclientDB, FileMode.Append)))
@@ -141,7 +164,7 @@ namespace course_job
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Проверьте на корректность поля с задолженностью и долгом");
+                                        MessageBox.Show("Проверьте на корректность поля с задолженностью и стоимостью");
                                     }
 
                                 }
@@ -149,7 +172,8 @@ namespace course_job
                         {
                             MessageBox.Show("Стоимость услуг должна быть больше 0");
                         }
-                    else {
+                    else
+                    {
                         MessageBox.Show("Неправильный или неполный ввод в поля");
                     }
                 }
@@ -344,11 +368,7 @@ namespace course_job
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //Help help = new Help();
-            //help.Show();
-        }
+
     }
 }
 

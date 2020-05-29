@@ -13,7 +13,7 @@ namespace course_job
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(/*new MainWindow()*/new ForkForm());
+            Application.Run(new MainWindow());
         }
     }
 }
